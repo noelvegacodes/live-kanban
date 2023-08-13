@@ -16,11 +16,8 @@ const config = {
 			// other options ....
 			optimizeDeps: {
 				exclude: ['lib/partykit.ts']
-			},
-			// in case you want to interact with rollup you can use
-			build: {
-				rollupOptions: {}
 			}
+			// in case you want to interact with rollup you can use
 		}
 	}
 };
