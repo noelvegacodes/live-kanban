@@ -8,8 +8,14 @@ export default {
 				const data = JSON.parse(e.data);
 				if (data.type === 'chatmsg') {
 					room.broadcast(e.data);
+				} else if (data.type === 'cursor') {
+					room.broadcast(JSON.stringify(data), [websocket.id]);
 				}
 			}
+		});
+
+		websocket.addEventListener('close', () => {
+			console.log('socket closed');
 		});
 	},
 	// optionally, you can respond to HTTP requests as well
