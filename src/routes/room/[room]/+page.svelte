@@ -1,15 +1,12 @@
 <script lang="ts">
 	import { enhance } from "$app/forms";
     import {page} from "$app/stores"
-    import PartySocket from 'partysocket';
+	import { useSocket } from "$lib/partykit";
 
     let msg = ""
     let messages: string[] = []
 
-    const socket = new PartySocket({
-        host: 'codefork-party.noelvegacodes.partykit.dev',
-        room: $page.params.room
-    })
+    const socket = useSocket($page.params.room)
     console.log($page.params.room)
 
     socket.addEventListener("message", (evt) => {
