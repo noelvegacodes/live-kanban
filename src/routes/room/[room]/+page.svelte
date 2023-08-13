@@ -7,7 +7,6 @@
     let messages: string[] = []
 
     const socket = useSocket($page.params.room)
-    console.log($page.params.room)
 
     socket.addEventListener("message", (evt) => {
         const data = JSON.parse(evt.data);
